@@ -21,6 +21,7 @@ app.use(express.static("public"));
 // routing
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/user-routes.js")(app);
 
 // syncing sequelize models and starting app to listen at 3000 port
 // pass { force: true } in the sync function to force it to remake your tables
