@@ -34,5 +34,6 @@ module.exports = function(app) {
 
   app.get("/auth/google/redirect", passport.authenticate("google"), function(req, res){
     res.send("Redirecting...");
+    setTimeout(res.redirect("/placeholder"), 1000);
   })
 };
