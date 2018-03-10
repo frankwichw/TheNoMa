@@ -2,6 +2,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+// requiring passport
+var passportSetup = require("./authconfig/passport-setup.js");
+
 // app variable and port
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -21,6 +24,7 @@ app.use(express.static("public"));
 // routing
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/user-routes.js")(app);
 
 // syncing sequelize models and starting app to listen at 3000 port
 // pass { force: true } in the sync function to force it to remake your tables
