@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var cookieSession = require("cookie-session");
+var passport = require("passport");
 
 // requiring passport
 var passportSetup = require("./authconfig/passport-setup.js");
@@ -16,7 +17,11 @@ app.use(cookieSession({
   // key ought to be in a separate file to gitignore for security 
   // but for our purposes we will leave it out
   keys: ["theNoMaencryptionkey"]
-}))
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // sets up app to use body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
