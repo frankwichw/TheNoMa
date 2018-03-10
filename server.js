@@ -2,6 +2,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+// requiring passport
+var passportSetup = require("./authconfig/passport-setup.js");
+
 // app variable and port
 var app = express();
 var PORT = process.env.PORT || 3000;
