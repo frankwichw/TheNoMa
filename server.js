@@ -5,11 +5,14 @@ var cookieSession = require("cookie-session");
 var passport = require("passport");
 
 // requiring passport
-var passportSetup = require("./authconfig/passport-setup.js");
+// var passportSetup = require("./authconfig/passport-setup.js");
 
 // app variable and port
 var app = express();
 var PORT = process.env.PORT || 3000;
+
+// use this static information to serve html
+app.use('/public', express.static(__dirname + '/public'))
 
 // sets up cookie session
 app.use(cookieSession({
@@ -32,8 +35,12 @@ app.use(bodyParser.json());
 // once tim has models ready
 var db = require("./models");
 
-// use this static information to serve html
-app.use(express.static("public"));
+
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 
 // routing
 require("./routes/api-routes.js")(app);

@@ -1,0 +1,156 @@
+body {
+    font-family: 'Catamaran', sans-serif;
+    background-image: url("../images/extra_clean_paper.png")
+}
+
+.btn-txt {
+    font-family: 'Handlee', cursive;
+    color: white;
+    font-size: 1.3rem;
+}
+
+#noma-nav {
+    margin-top: 8px;
+}
+
+.nav-social {
+    max-height: 38px;
+    margin-top: 14px;
+}
+
+.modal {
+    font-family: 'Catamaran', sans-serif;
+    background-image: url("../images/extra_clean_paper.png")
+}
+
+.header-text {
+    font-family: 'Fredericka the Great', cursive;
+    color: rgb(69, 46, 85);
+}
+
+.header-text-hm {
+    font-family: 'Fredericka the Great', cursive;
+    color: rgb(110, 72, 136);
+    margin: 6px;
+}
+
+.bubble-text {
+    font-family: 'Handlee', cursive;
+}
+
+#logo-home {
+    margin-top: -20px;
+    width: 100%;
+    height: 390px;
+}
+
+#howTo-home {
+    background-color: rgba(110, 122, 231, 0.137);
+}
+
+.home-infoImg {
+    max-width: 65%;
+}
+
+.homeBtn {
+    width: 60%;
+}
+
+#homeBtn-row {
+    margin-top: 20px;
+}
+
+.welcomeBtn {
+    height: 200px;
+}
+
+.row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#guess-form {
+    width: 80%;
+}
+
+.icons {
+    margin-top: 15px;
+}
+
+.start-btn {
+    margin-bottom: 35px;
+}
+
+#user-name {
+    margin: 45px 0px 0px 25px;
+}
+
+.place-hldr {
+    background-color: rgba(110, 122, 231, 0.137);
+    width: 60%;
+    height: 400px;
+}
+
+
+/* canvas css */
+
+#toolbar {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    /* position: fixed; */
+    /* top: 0; */
+    display: inline-block;
+    background-color: rgba(119, 93, 136, 0.534);
+    color: white;
+}
+
+.radControl {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(69, 50, 82);
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+
+#radius {
+    float: left;
+}
+
+#colors {
+    float: right;
+    margin-right: 30px;
+}
+
+.swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-left: 10px;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 2px 2px rgba (0, 0, 0, 0.5);
+}
+
+.swatch.active {
+    border: 2px solid white;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* #save {
+    float: right;
+    margin-right: 20px;
+    height: 30px;
+    padding: 8px;
+    background-color: black;
+} */
+
+#save:hover {
+    background-color: rgb(37, 37, 37);
+}
+
+#myCanvas {
+    background-image: url("../images/linedpaper.png");
+    margin-bottom: 15px;
+}
