@@ -7,7 +7,8 @@ module.exports = function(app) {
   });
 
   app.get("/welcome", function(req, res) {
-    res.render("welcome");
+   res.send("Hello! Your ID is: " + req.user.id + "\nYour name is: " + req.user.username);
+    // res.render("welcome");
   });
 
   // blog route loads blog.html

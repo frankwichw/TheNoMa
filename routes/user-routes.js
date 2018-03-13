@@ -8,7 +8,8 @@ module.exports = function(app) {
 
   // redirect route
   app.get("/auth/google/redirect", passport.authenticate("google"), function(req, res){
-    res.send("Redirecting...");
-    setTimeout(res.redirect("/placeholder"), 1000);
+    // res.send(req.user);
+    // to request currently logged in user use req.user
+    res.redirect("/welcome");
   })
 };

@@ -2,6 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var cookieSession = require("cookie-session");
+var passport = require("passport");
 
 // requiring passport
 // var passportSetup = require("./authconfig/passport-setup.js");
@@ -14,12 +15,18 @@ var PORT = process.env.PORT || 3000;
 app.use('/public', express.static(__dirname + '/public'))
 
 // sets up cookie session
-// app.use(cookieSession({
-// maxAge: 24 * 60 * 60 * 1000,
+app.use(cookieSession({
+  maxAge: 24 * 60 * 60 * 1000,
   // key ought to be in a separate file to gitignore for security 
   // but for our purposes we will leave it out
-// keys: ["theNoMaencryptionkey"]
-// }))
+
+  keys: ["theNoMaencryptionkey"]
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // sets up app to use body-parser
 app.use(bodyParser.urlencoded({ extended: true }));

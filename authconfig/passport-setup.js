@@ -2,12 +2,12 @@ var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth20");
 var db = require("../models/user.js");
 
-passport.serializeUse((user, done)=> {
+passport.serializeUser((user, done)=> {
     done(null, user.id);
 });
 
-passport.deserializeUse((id, done)=> {
-    db.User.findOne({where: {id: id}}).then(function(user) {
+passport.deserializeUser((userId, done)=> {
+    db.User.findOne({where: {id: userId}}).then(function(user) {
         done(null, user);
     });
 });
@@ -21,7 +21,7 @@ passport.use(
     (accessToken, refreshToken, profile, done)=>{
         // passport callback function
         // check if user exists
-        db.User.findOne({where: {user_id: profile.id}}).then(function(currentUser) {
+        db.Users.findOne({where: {user_id: profile.id}}).then(function(currentUser) {
             // We have access to the todos as an argument inside of the callback function
             if(currentUser){
                 // already have a user
@@ -29,13 +29,13 @@ passport.use(
                 done(null, currentUser);
             } else {
                 // if not, create user
-                db.User.create({
+                db.Users.create({
                     user_id: profile.id,
                     user_name: profile.displayName
                   }).then(function(newUser) {
                     // We have access to the new todo as an argument inside of the callback function
                     console.log("User created: " + newUser);
-                    done(null, currentUser);
+                    done(null, newUser.dataValues);
                 });
             }
         });
