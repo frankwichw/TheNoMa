@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Users = sequelize.define("Users", {
+  var User = sequelize.define("User", {
     user_id: {
       type: DataTypes.STRING,
       allowNull: true
@@ -14,18 +14,11 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Users.associate = function (models) {
-    Users.hasMany(models.Drawings, {
+  User.associate = function (models) {
+    User.hasMany(models.Drawing, {
       onDelete: "cascade"
     });
   };
 
-  // Cannot get userID in both guesses and drawings
-  // Users.associate = function(models) {
-  //     Users.hasMany(models.Guesses, {
-  //         onDelete: "cascade"
-  //     });
-  // };
-
-  return Users;
+  return User;
 };

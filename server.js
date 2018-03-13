@@ -14,12 +14,12 @@ var PORT = process.env.PORT || 3000;
 app.use('/public', express.static(__dirname + '/public'))
 
 // sets up cookie session
-app.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
+// app.use(cookieSession({
+// maxAge: 24 * 60 * 60 * 1000,
   // key ought to be in a separate file to gitignore for security 
   // but for our purposes we will leave it out
-  keys: ["theNoMaencryptionkey"]
-}))
+// keys: ["theNoMaencryptionkey"]
+// }))
 
 // sets up app to use body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,6 +41,9 @@ app.set("view engine", "handlebars");
 require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 require("./routes/user-routes.js")(app);
+require("./routes/user-api-routes.js")(app);
+require("./routes/drawing-api-routes.js")(app);
+require("./routes/guess-api-routes.js")(app);
 
 // syncing sequelize models and starting app to listen at 3000 port
 // pass { force: true } in the sync function to force it to remake your tables
