@@ -5,7 +5,7 @@ var cookieSession = require("cookie-session");
 var passport = require("passport");
 
 // requiring passport
-// var passportSetup = require("./authconfig/passport-setup.js");
+var passportSetup = require("./authconfig/passport-setup.js");
 
 // app variable and port
 var app = express();

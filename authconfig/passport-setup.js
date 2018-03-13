@@ -1,6 +1,6 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth20");
-var db = require("../models/user.js");
+var db = require("../models");
 
 passport.serializeUser((user, done)=> {
     done(null, user.id);
@@ -21,7 +21,7 @@ passport.use(
     (accessToken, refreshToken, profile, done)=>{
         // passport callback function
         // check if user exists
-        db.Users.findOne({where: {user_id: profile.id}}).then(function(currentUser) {
+        db.User.findOne({where: {user_id: profile.id}}).then(function(currentUser) {
             // We have access to the todos as an argument inside of the callback function
             if(currentUser){
                 // already have a user
@@ -29,7 +29,7 @@ passport.use(
                 done(null, currentUser);
             } else {
                 // if not, create user
-                db.Users.create({
+                db.User.create({
                     user_id: profile.id,
                     user_name: profile.displayName
                   }).then(function(newUser) {

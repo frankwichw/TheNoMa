@@ -7,7 +7,7 @@ module.exports = function(app) {
   });
 
   app.get("/welcome", function(req, res) {
-   res.send("Hello! Your ID is: " + req.user.id + "\nYour name is: " + req.user.username);
+   res.send("Hello! Your ID is: " + req.user.id + "\nYour name is: " + req.user.user_name);
     // res.render("welcome");
   });
 
