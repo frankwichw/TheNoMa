@@ -1,0 +1,53 @@
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col s6 center-align header-text">
+                <h3>Time to Draw:</h3>
+            </div>
+            <div class="col s6 left-align bubble-text" id="subject">
+                <h3>subject</h3>
+            </div>
+
+        </div>
+
+        <div class="row valign-wrapper">
+            <div class="col m2"></div>
+            <div class="col s12 m8">
+                <div id="toolbar">
+                    <div id="radius">
+                        RADIUS <span id="radval">5</span>
+                        <div id="decRad" class="radControl">-</div>
+                        <div id="incRad" class="radControl">+</div>
+                    </div>
+                    <div id="colors">
+                    </div>
+                    {{!-- <div id="save">Save</div> --}}
+                </div>
+            </div>
+            <div class="col m2"></div>
+        </div>
+
+
+        <div class="row valign-wrapper">
+            {{!-- <div class="col m2"></div> --}}
+            <div class="col s12 center-align">
+                <canvas id="myCanvas" width="850px" height="400px" class="z-depth-4" onload="startUp()">Sorry, your browser does not support this game</canvas>
+            </div>
+            {{!-- <div class="col m2"></div> --}}
+        </div>
+
+
+        <div class="row">
+            <div class="col s2"></div>
+            <div class="col s6 right-align">
+                <span class="bubble-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis autem explicabo ab maxime voluptatum architecto tenetur voluptas! Magni, a ducimus.</span>
+            </div>
+            <div class="col s4 left-align">
+                <button class="btn btn-large #5c6bc0 indigo lighten-1 bubble-text" id="save">Submit</button>
+            </div>
+        </div>
+
+    </div>
+
