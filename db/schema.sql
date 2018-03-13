@@ -33,6 +33,7 @@ CREATE DATABASE noma_db;
 -- (
 -- 	   id INT NOT NULL AUTO_INCREMENT,
 --     guess VARCHAR(100),
+--     rating INT,
 --     createdAt DATETIME,
 --     updatedAt DATETIME,
 --     DrawingId INT,
