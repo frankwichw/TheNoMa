@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Drawings = sequelize.define("Drawings", {
+  var Drawing = sequelize.define("Drawing", {
     drawing: {
       type: DataTypes.TEXT,
       allowNull: true
@@ -10,19 +10,19 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
-  Drawings.associate = function (models) {
-    Drawings.belongsTo(models.Users, {
+  Drawing.associate = function (models) {
+    Drawing.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  Drawings.associate = function (models) {
-    Drawings.hasMany(models.Guesses, {
+  Drawing.associate = function (models) {
+    Drawing.hasMany(models.Guess, {
       onDelete: "cascade"
     });
   };
-
-  return Drawings;
+  
+  return Drawing;
 };
