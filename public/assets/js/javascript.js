@@ -1,17 +1,17 @@
-$("#guess-submit").on("click", function (event) {
-    event.preventDefault();
+// $("#guess-submit").on("click", function (event) {
+//     event.preventDefault();
 
 
-    var userGuess = $("#guess").val().trim();
+//     var userGuess = $("#guess").val().trim();
 
-    console.dir("in the form " + userGuess);
+//     console.dir("in the form " + userGuess);
 
-    $.post("/api/guess", userGuess).done(function (data) {
-        console.log('this is the data' + data);
+//     $.post("/api/guess", userGuess).done(function (data) {
+//         console.log('this is the data' + data);
 
-    });
+//     });
 
-});
+// });
 
 // Random Drawing Prompt
 
