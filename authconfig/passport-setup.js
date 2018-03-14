@@ -1,13 +1,13 @@
 var passport = require("passport");
 var GoogleStrategy = require("passport-google-oauth20");
-var db = require("../models/users.js");
+var db = require("../models");
 
-passport.serializeUse((user, done)=> {
+passport.serializeUser((user, done)=> {
     done(null, user.id);
 });
 
-passport.deserializeUse((id, done)=> {
-    db.User.findOne({where: {id: id}}).then(function(user) {
+passport.deserializeUser((userId, done)=> {
+    db.User.findOne({where: {id: userId}}).then(function(user) {
         done(null, user);
     });
 });
@@ -35,7 +35,7 @@ passport.use(
                   }).then(function(newUser) {
                     // We have access to the new todo as an argument inside of the callback function
                     console.log("User created: " + newUser);
-                    done(null, currentUser);
+                    done(null, newUser.dataValues);
                 });
             }
         });
