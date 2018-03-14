@@ -1,4 +1,5 @@
 var path = require("path");
+var db = require("../models");
 
 // routes
 module.exports = function(app) {
@@ -7,17 +8,25 @@ module.exports = function(app) {
   });
 
   app.get("/welcome", function(req, res) {
-   res.send("Hello! Your ID is: " + req.user.id + "\nYour name is: " + req.user.user_name);
-    // res.render("welcome");
+  //  res.send("Hello! Your ID is: " + req.user.id + "\nYour name is: " + req.user.user_name);
+    var userName = req.user.user_name;
+    res.render("welcome", {username: userName});
   });
 
-  // blog route loads blog.html
   app.get("/draw", function(req, res) {
     res.render("draw");
   });
 
   app.get("/guess", function(req, res) {
-    res.render("guess");
+    db.Drawing.findOne({ 
+      exclude: {id: req.user.id},
+      random: true
+    }).then(function(drawing) {
+      // random drawing
+      var randomDrawing = drawing.drawing;
+      res.render("guess", {drawing: randomDrawing});
+    });
+
   });
 
 };

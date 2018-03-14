@@ -101,23 +101,24 @@ var colors = ['black', 'red', 'cyan', 'purple', 'yellow', 'green']
 
 // for save file
 
-var saveButton = document.getElementById("save");
+// var saveButton = document.getElementById("save");
 
-saveButton.addEventListener('click', saveImage);
+// saveButton.addEventListener('click', saveImage);
 
-        function saveImage() {
-            var data = canvas.toDataURL();
-    console.log(data);
+//         function saveImage() {
+//             var data = canvas.toDataURL();
+//     console.log(data);
 
     
-        $.ajax("/drawing", {
-            type: "POST",
-            data: data
-        }).then(
-            function () {
-                console.log("drawing sent");
-                // load next page
-                // location.reload();
-            }
-        );
-    }
+//         $.ajax("/drawing", {
+//             type: "POST",
+//             data: data
+//         }).then(
+//             function () {
+//                 console.log("drawing sent");
+//                 // load next page
+//                 // location.reload();
+//             }
+//         );
+//     }
+
