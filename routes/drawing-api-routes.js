@@ -3,6 +3,13 @@ var db = require("../models");
 
 module.exports = function (app) {
 
+    // create new drawing
+    app.post("/api/drawing", function (req, res) {
+        db.Drawing.create(req.body).then(function (dbDrawing) {
+            res.json(dbDrawing);
+        });
+    });
+
     // all drawings (w user info)
     app.get("/api/drawing/all", function (req, res) {
         db.Drawing.findAll({
