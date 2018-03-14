@@ -27,3 +27,15 @@
             res.json(results);
         });
     });
+
+        // update guess rating
+        app.put("/api/rating", function (req, res) {
+            db.Guess.update(req.body,
+                {
+                    where: {
+                        id: req.body.id
+                    }
+                }).then(function (dbGuess) {
+                    res.json(dbGuess);
+                });
+        });
