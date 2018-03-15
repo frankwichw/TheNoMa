@@ -1,23 +1,32 @@
 {
     "development": {
         "username": "root",
-        "password": "Bluebuddha2710",
+        "password": "root",
         "database": "noma_db",
         "host": "127.0.0.1",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "production": {
+            "use_env_variable": "DATABASE_URL"
+        }
     },
     "test": {
         "username": "root",
         "password": null,
         "database": "noma_db",
         "host": "127.0.0.1",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "production": {
+            "use_env_variable": "DATABASE_URL"
+        }
     },
     "production": {
         "username": "root",
         "password": null,
         "database": "noma_db",
         "host": "127.0.0.1",
-        "dialect": "mysql"
+        "dialect": "mysql",
+        "production": {
+            "use_env_variable": "DATABASE_URL"
+        }
     }
 }
