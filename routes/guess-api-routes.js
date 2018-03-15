@@ -10,18 +10,6 @@ module.exports = function (app) {
         });
     });
 
-    // update guess rating
-    app.put("/api/rating", function (req, res) {
-        db.Guess.update(req.body,
-            {
-                where: {
-                    id: req.body.id
-                }
-            }).then(function (dbGuess) {
-                res.json(dbGuess);
-            });
-    });
-
     // all guesses
     app.get("/api/guess/all", function (req, res) {
         db.Guess.findAll({}).then(function (results) {

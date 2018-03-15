@@ -19,7 +19,7 @@ module.exports = function(app) {
 
   app.get("/guess", function(req, res) {
     db.Drawing.findOne({ 
-      exclude: {id: req.user.id},
+      exclude: {UserId: req.user.id},
       random: true
     }).then(function(drawing) {
       // random drawing
