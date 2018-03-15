@@ -1,24 +1,11 @@
-// $("#guess-submit").on("click", function (event) {
-//     event.preventDefault();
-
-
-//     var userGuess = $("#guess").val().trim();
-
-//     console.dir("in the form " + userGuess);
-
-//     $.post("/api/guess", userGuess).done(function (data) {
-//         console.log('this is the data' + data);
-
-//     });
-
-// });
+$('select').material_select();
 
 // Random Drawing Prompt
 
-var drawThis = ["Taco cat", "Don't eat the cookies", "Pretending to read", "Candyman", "Eggmobile"];
+var drawThis = ["Taco cat", "Don't eat the cookies", "Pretending to read", "Candyman", "Eggmobile", "Lonely Plumber", "North of the Wall", "Robot Birthday"];
 
 
-var guessNumber = Math.floor(Math.random() * 5);
+var guessNumber = Math.floor(Math.random() * 8);
 console.log(guessNumber);
 
 var subject = drawThis[guessNumber];
@@ -48,20 +35,32 @@ $("#save").on("click", function (event) {
         function () {
             console.log("created new drawing");
             // Reload the page to get the updated list
-            location.reload();
+            location.replace("/welcome");
         }
     );
 }); 
 
+var newUserGuess = '';
+
 $("#guess-submit").on("click", function (event) {
+    event.preventDefault();
+    newUserGuess = $("#guess").val().trim();
+    $("#rate-art").removeClass("hide");
+    $("#guess-form").addClass("hide");
+});
+
+$("#submit-all").on("click", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
     var newUserGuess = $("#guess").val().trim();
+
+    var userRating = parseInt($("#art-rating").val());
     //new guess object
     var guessInput = {
         guess: newUserGuess,
         DrawingId: 3,
-        userId: 2
+        userId: 2,
+        rating: userRating
     };
 
     console.log(guessInput);
@@ -73,7 +72,7 @@ $("#guess-submit").on("click", function (event) {
         function () {
             console.log("created new guess");
             // Reload the page to get the updated list
-            location.reload();
+            // location.reload();
         }
     );
 }); 
