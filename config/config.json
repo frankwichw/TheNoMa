@@ -4,26 +4,20 @@
         "password": "root",
         "database": "noma_db",
         "host": "127.0.0.1",
-        "dialect": "mysql",
-        "production": {
-            "use_env_variable": "DATABASE_URL"
-        }
+        "dialect": "mysql"
     },
     "test": {
         "username": "root",
         "password": null,
         "database": "noma_db",
         "host": "127.0.0.1",
-        "dialect": "mysql",
-        "production": {
-            "use_env_variable": "DATABASE_URL"
-        }
+        "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "noma_db",
-        "host": "127.0.0.1",
+        "username": "ngjh8stobhwvz3so",
+        "password": "y4mtb0bk9qk7lrzs",
+        "database": "awc7c6vwmsmmz1sq",
+        "host": "lmag6s0zwmcswp5w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql",
         "production": {
             "use_env_variable": "DATABASE_URL"
