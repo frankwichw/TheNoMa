@@ -33,6 +33,7 @@ module.exports = function(app) {
       // random drawing
       var randomDrawing = drawing.dataValues.drawing;
       res.render("guess", {drawing: randomDrawing});
+      res.json(drawing);
     });
 
   });
