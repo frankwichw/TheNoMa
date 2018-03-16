@@ -2,10 +2,10 @@ $('select').material_select();
 
 // Random Drawing Prompt
 
-var drawThis = ["Taco cat", "Don't eat the cookies", "Pretending to read", "Candyman", "Eggmobile", "Lonely Plumber", "North of the Wall", "Robot Birthday"];
+var drawThis = ["Taco cat", "Don't eat the cookies", "Pretending to read", "Candyman", "Eggmobile", "Lonely Plumber", ""];
 
 
-var guessNumber = Math.floor(Math.random() * 8);
+var guessNumber = Math.floor(Math.random() * 5);
 console.log(guessNumber);
 
 var subject = drawThis[guessNumber];

@@ -81,6 +81,12 @@ body {
     margin-bottom: 35px;
 }
 
+#random-guessImg {
+    background-image: url("../images/linedpaper.png");
+    width: 70%;
+    height: auto;
+}
+
 
 /* #user-name {
     margin: 45px 0px 0px 25px;
