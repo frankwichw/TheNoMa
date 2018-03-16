@@ -27,10 +27,7 @@ module.exports = function(app) {
 
   app.get("/guess", function(req, res) {
     db.Drawing.findOne({ 
-      exclude: {UserId: req.user.id},
-      order: [
-        Sequelize.fn( 'RAND' )
-      ]
+      exclude: {UserId: req.user.id}
     }).then(function(drawing) {
       console.log(drawing.dataValues);
       // random drawing
