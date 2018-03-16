@@ -31,8 +31,9 @@ module.exports = function(app) {
     }).then(function(drawing) {
       // random drawing
       var randomDrawing = drawing.dataValues.drawing;
-      var drawingDescriptor = drawing.dataValues.drawing_descriptor
-      res.render("guess", {drawing: randomDrawing, answer: drawingDescriptor});
+      var drawingDescriptor = drawing.dataValues.drawing_descriptor;
+      var drawingID = drawing.dataValues.id;
+      res.render("guess", {drawing: randomDrawing, answer: drawingDescriptor, id: drawingID});
     });
 
   });
