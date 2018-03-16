@@ -34,7 +34,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // require models for syncing
-// once tim has models ready
 var db = require("./models");
 
 
