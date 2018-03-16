@@ -22,8 +22,9 @@ module.exports = function(app) {
       exclude: {UserId: req.user.id},
       random: true
     }).then(function(drawing) {
+      console.log(drawing.dataValues);
       // random drawing
-      var randomDrawing = drawing.drawing;
+      var randomDrawing = drawing.dataValues.drawing;
       res.render("guess", {drawing: randomDrawing});
     });
 
