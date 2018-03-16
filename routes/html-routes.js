@@ -29,11 +29,10 @@ module.exports = function(app) {
     db.Drawing.findOne({ 
       exclude: {UserId: req.user.id}
     }).then(function(drawing) {
-      console.log(drawing.dataValues);
       // random drawing
       var randomDrawing = drawing.dataValues.drawing;
-      res.render("guess", {drawing: randomDrawing});
-      res.json(drawing);
+      var drawingDescriptor = drawing.dataValues.drawing_descriptor
+      res.render("guess", {drawing: randomDrawing, answer: drawingDescriptor});
     });
 
   });
