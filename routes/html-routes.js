@@ -8,9 +8,17 @@ module.exports = function(app) {
   });
 
   app.get("/welcome", function(req, res) {
-  //  res.send("Hello! Your ID is: " + req.user.id + "\nYour name is: " + req.user.user_name);
+    var userScore;
     var userName = req.user.user_name;
-    res.render("welcome", {username: userName});
+    db.User.findOne({
+      where: {
+        id: req.user.id
+      }
+    }).then(function(user){
+      userScore = user.user_score;
+      console.log(userScore);
+      res.render("welcome", {username: userName, score: userScore});
+    });
   });
 
   app.get("/draw", function(req, res) {
@@ -19,13 +27,13 @@ module.exports = function(app) {
 
   app.get("/guess", function(req, res) {
     db.Drawing.findOne({ 
-      exclude: {UserId: req.user.id},
-      random: true
+      exclude: {UserId: req.user.id}
     }).then(function(drawing) {
-      console.log(drawing.dataValues);
       // random drawing
       var randomDrawing = drawing.dataValues.drawing;
-      res.render("guess", {drawing: randomDrawing});
+      var drawingDescriptor = drawing.dataValues.drawing_descriptor;
+      var drawingID = drawing.dataValues.id;
+      res.render("guess", {drawing: randomDrawing, answer: drawingDescriptor, id: drawingID});
     });
 
   });

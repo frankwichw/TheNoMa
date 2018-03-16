@@ -16,8 +16,9 @@
 
         <div class="row valign-wrapper">
             <div class="col s2"></div>
+
             <div class="col s8 center-align " id="to-guess">
-               <img src={{drawing}} id="random-guessImg" class="z-depth-4">
+               <img src={{drawing}} data-value={{id}} id="random-guessImg" class="z-depth-4">
             </div>
             <div class="col s2"></div>
         </div>
@@ -37,7 +38,7 @@
                 </form>
                 
                     <div class="hide" id="rate-art">
-                            <h4><span class="header-text-hm">Answer:</span><span id="answer" class="bubble-text">Sample text</span></h4>
+                            <h4><span class="header-text-hm">Answer:</span><span id="answer" class="bubble-text">{{answer}}</span></h4>
                             <p class="bubble-text">Please rate the drawing. How close was it to the answer provided?</p>
                             <div class="input-field">
                                 <select id="art-rating">

@@ -43,43 +43,48 @@ $("#save").on("click", function (event) {
 var newUserGuess = '';
 
 $("#guess-submit").on("click", function (event) {
-    event.preventDefault();
-    newUserGuess = $("#guess").val().trim();
-    $("#rate-art").removeClass("hide");
-    $("#guess-form").addClass("hide");
+   event.preventDefault();
+   newUserGuess = $("#guess").val().trim();
+   $("#rate-art").removeClass("hide");
+   $("#guess-form").addClass("hide");
 });
 
 $("#submit-all").on("click", function (event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-    var newUserGuess = $("#guess").val().trim();
+   // Make sure to preventDefault on a submit event.
+   event.preventDefault();
+   var newUserGuess = $("#guess").val().trim();
 
-    var userRating = parseInt($("#art-rating").val());
-    //new guess object
-    var guessInput = {
-        guess: newUserGuess,
-        DrawingId: 3,
-        userId: 2,
-        rating: userRating
-    };
+   var userRating = parseInt($("#art-rating").val());
+   //new guess object
+   var userScore = userRating * 10;
 
-    console.log(guessInput);
-    // Send the POST request.
-    $.ajax("/api/guess", {
-        type: "POST",
-        data: guessInput
-    }).then(
-        function () {
-            console.log("created new guess");
-            // Reload the page to get the updated list
-            // location.reload();
-        }
-    );
-}); 
+   var guessInput = {
+       guess: newUserGuess,
+       DrawingId: 3,
+       userId: 2,
+       rating: userRating
+   };
 
+   console.log(guessInput);
+   // Send the POST request.
+   $.ajax("/api/guess", {
+       type: "POST",
+       data: guessInput
+   }).then(
+       function () {
+           console.log("created new guess");
+           // Reload the page to get the updated list
+           // location.reload();
+       }
+   );
 
-
-// var img = base64 uri
-// var data = img.replace(/^data:image\/\w+;base64,/, "");
-// var buf = new Buffer(data, 'base64');
-// $('#user-to-draw').append("<img src="+ buf + ">");
+   $.ajax("/api/score", {
+       type: "PUT",
+       data: userScore
+   }).then(
+       function () {
+           console.log("user score updated");
+           // Reload the page to get the updated list
+           location.replace("/welcome");
+       });
+});
