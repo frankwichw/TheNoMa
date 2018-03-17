@@ -85,7 +85,7 @@ $(document).ready(function(){
         function () {
             console.log("user score updated");
             // Reload the page to get the updated list
-            // location.replace("/welcome");
+            location.replace("/welcome");
         });
     });
 });
