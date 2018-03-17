@@ -60,7 +60,11 @@ $(document).ready(function(){
 
     var userRating = parseInt($("#art-rating").val());
     //new guess object
-    var userScore = userRating * 10;
+    //var userScore = userRating * 10;
+    var userScore = {
+        user_score: userRating * 10,
+        id: 5
+    };
 
     var guessInput = {
         guess: newUserGuess,
