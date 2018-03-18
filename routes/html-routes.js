@@ -13,9 +13,11 @@ module.exports = function (app) {
     db.User.findOne({
       where: {
         id: req.user.id
+
       }
-    }).then(function (user) {
-      userScore = user.user_score;
+    }).then(function(e){
+      userScore = req.user.dataValues.user_score;
+      console.log(req.user)
       console.log(userScore);
       res.render("welcome", { username: userName, score: userScore });
     });
