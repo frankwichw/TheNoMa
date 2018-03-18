@@ -18,7 +18,9 @@
             <div class="col s2"></div>
 
             <div class="col s8 center-align " id="to-guess">
-               <img src={{drawing}} data-attribute={{id}} id="random-guessImg" class="z-depth-4">
+                {{!-- moved all required fields into their own input fields in input div --}}
+               {{!-- <img src={{drawing}} data-attribute={{id}} id="random-guessImg" class="z-depth-4"> --}}
+               <img src={{drawing}} id="random-guessImg" class="z-depth-4">
             </div>
             <div class="col s2"></div>
         </div>
@@ -51,6 +53,12 @@
                                 </select>
                                 <label>Art Rating</label>
                             </div>
+                            
+                            {{!-- Hold values from the guess html route --}}
+                            <input id="guessUID" type="hidden" value={{guessUID}}>        
+                            <input id="user_score" type="hidden" value={{user_score}}>
+                            <input id="artistID" type="hidden" value={{artistID}}>
+                            <input id="drawingID" type="hidden" value={{drawingID}}>
 
                             <button class="btn btn-large #5c6bc0 indigo lighten-1 bubble-text" type="submit" id="submit-all">Submit</button>
                     </div>
