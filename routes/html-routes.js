@@ -20,6 +20,7 @@ module.exports = function (app) {
       userScore = req.user.dataValues.user_score;
       // console.log(req.user)
       // console.log(userScore);
+
       res.render("welcome", { username: userName, score: userScore });
     });
   });
