@@ -50,6 +50,20 @@ module.exports = function (app) {
         });
     });
 
+    // all drawings
+    app.get("/api/drawing/all", function (req, res) {
+        db.User.findAll({
+            attributes: ['user_name', 'user_score'],
+            raw: true,
+            include: [{
+                model: db.Drawing,
+                attributes: ['UserId', 'drawing', 'drawing_descriptor']
+            }]
+        }).then(function (results) {
+            res.json(results);
+        });
+    });
+    
     // a specific drawing
     app.get("/api/drawing/:id", function (req, res) {
         db.User.findOne({
@@ -58,20 +72,6 @@ module.exports = function (app) {
             include: [{
                 model: db.Drawing,
                 where: { id: req.params.id },
-                attributes: ['UserId', 'drawing', 'drawing_descriptor']
-            }]
-        }).then(function (results) {
-            res.json(results);
-        });
-    });
-
-    // all drawings
-    app.get("/api/drawing/all", function (req, res) {
-        db.User.findAll({
-            attributes: ['user_name', 'user_score'],
-            raw: true,
-            include: [{
-                model: db.Drawing,
                 attributes: ['UserId', 'drawing', 'drawing_descriptor']
             }]
         }).then(function (results) {
