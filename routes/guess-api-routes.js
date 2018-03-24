@@ -5,17 +5,18 @@ module.exports = function (app) {
 
     // create new guess
     app.post("/api/guess", function (req, res) {
-        var userID = req.user.id;
-        console.log("user id: " + userID);
-        console.log("req.body below:");
-        console.log(req.body);
-        var guessObj = {
-            guess: req.body.guess,
-            userId: userID,
-            rating: req.body.rating,
-            DrawingId: req.body.DrawingId
-        }
-        db.Guess.create(guessObj).then(function (dbGuess) {
+        // var userID = req.user.id;
+        // console.log("user id: " + userID);
+        // console.log("req.body below:");
+        // console.log(req.body);
+        // var guessObj = {
+        //     guess: req.body.guess,
+        //     userId: userID,
+        //     rating: req.body.rating,
+        //     DrawingId: req.body.DrawingId
+        // }
+        // db.Guess.create(guessObj).then(function (dbGuess) {
+        db.Guess.create(req.body).then(function (dbGuess) {
             res.json(dbGuess);
         });
     });

@@ -46,6 +46,7 @@ module.exports = function (app) {
     db.sequelize.query(qry, { replacements: { guessUID: req.user.id }, type: db.sequelize.QueryTypes.SELECT }).then(dwgstoguess => {
       if (dwgstoguess.length < 1) {
         console.log("There are no drawings for you to guess.");
+        res.redirect("/welcome");
         return
       }
       // console.log(dwgstoguess);
