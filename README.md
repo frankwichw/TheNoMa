@@ -1,9 +1,9 @@
 # The NoMa
 The NoMa draws inspiration from games like Pictionary, and transfers it to an online, asynchronous environment. Users can:
 * Log in with their Google+ account
-* draw from a random prompt in their browser
-* guess what other users' drawings are supposed to be  
-Correct answers get you points, and a drawing rating system also awards points the higher the drawing is rated.
+* Draw from a random prompt in their browser
+* Guess what other users' drawings are supposed to be  
+* Get points through correct answers or when other users rate your drawing highly
 
 ## Deployment
 Visit the deployed app on Heroku:
