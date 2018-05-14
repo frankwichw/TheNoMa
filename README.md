@@ -18,6 +18,7 @@ Visit the deployed app on Heroku:
 #### Back-end
 * [Body-Parser](https://www.npmjs.com/package/body-parser "Body-Parser")
 * [Cookie-Session](https://www.npmjs.com/package/cookie-session "Cookie-Session")
+* [MySQL](https://www.mysql.com/ "MySQL")
 * [Passport](http://www.passportjs.org/ "Passport")
 * [Sequelize](http://docs.sequelizejs.com/ "Sequelize")
 
